@@ -69,3 +69,14 @@ button:nth-child(16) {
 button:nth-child(16):hover {
   background-color: #45a049;
 }
+/* Styles remain the same, with additional color for the new +2 button */
+
+button:nth-child(20) {
+  background-color: #ffa500; /* Orange for +2 */
+  color: white;
+}
+
+button:nth-child(20):hover {
+  background-color: #ff8c00;
+}
+

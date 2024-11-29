@@ -3,18 +3,39 @@ import "./App.css";
 
 function App() {
   const [input, setInput] = useState("");
-  
+
+  // Handle button clicks
   const handleClick = (value) => {
     setInput((prevInput) => prevInput + value);
   };
 
+  // Clear the display
   const clearInput = () => {
     setInput("");
   };
 
+  // Calculate the result of the expression
   const calculateResult = () => {
     try {
-      setInput(eval(input).toString()); // Use eval with caution in production
+      setInput(eval(input).toString()); // Use eval cautiously, consider safer alternatives
+    } catch (error) {
+      setInput("Error");
+    }
+  };
+
+  // Calculate percentage
+  const calculatePercentage = () => {
+    try {
+      setInput((parseFloat(input) / 100).toString());
+    } catch (error) {
+      setInput("Error");
+    }
+  };
+
+  // Increment by 2
+  const incrementBy2 = () => {
+    try {
+      setInput((parseFloat(input) + 2).toString());
     } catch (error) {
       setInput("Error");
     }
@@ -38,9 +59,11 @@ function App() {
         <button onClick={() => handleClick("*")}>*</button>
         <button onClick={() => handleClick("0")}>0</button>
         <button onClick={() => handleClick(".")}>.</button>
+        <button onClick={calculatePercentage}>%</button>
         <button onClick={() => handleClick("-")}>-</button>
         <button onClick={() => handleClick("+")}>+</button>
         <button onClick={calculateResult}>=</button>
+        <button onClick={incrementBy2}>+2</button>
       </div>
     </div>
   );
